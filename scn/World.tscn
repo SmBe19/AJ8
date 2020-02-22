@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://src/Player.gd" type="Script" id=1]
 [ext_resource path="res://msh/level.obj" type="ArrayMesh" id=2]
@@ -6,7 +6,12 @@
 [ext_resource path="res://mat/depth.tres" type="Material" id=4]
 [ext_resource path="res://msh/level.dae" type="PackedScene" id=5]
 [ext_resource path="res://scn/upgrade.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/level.gd" type="Script" id=7]
+[ext_resource path="res://msh/morse_letter.obj" type="ArrayMesh" id=7]
+[ext_resource path="res://scn/morse_light.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/mat_depth.shader" type="Shader" id=9]
+[ext_resource path="res://scn/input_screen.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scn/XOR_Riddle.tscn" type="PackedScene" id=11]
+[ext_resource path="res://mat/depth_blue.tres" type="Material" id=12]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -23,9 +28,9 @@ script = ExtResource( 7 )
 material = ExtResource( 4 )
 
 [node name="Player" type="KinematicBody" parent="."]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, -20, 0 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -12, 1, 17 )
 script = ExtResource( 1 )
-mat_depth = [ ExtResource( 4 ), ExtResource( 3 ) ]
+mat_depth = [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 12 ) ]
 
 [node name="PlayerCollision" type="CollisionShape" parent="Player"]
 transform = Transform( 1, 1.49012e-08, 0, -6.5135e-16, -2.88102e-08, 1, -1.49012e-08, -1, -5.86126e-08, 0, 0, 0 )
@@ -71,3 +76,36 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 1, 24 )
 
 [node name="upgrade4" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -302, 1, 12 )
+
+[node name="input_screens" type="Spatial" parent="."]
+
+[node name="input_screen_ug" parent="input_screens" instance=ExtResource( 10 )]
+transform = Transform( -2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 7.3346, -19.5556, 19.9518 )
+
+[node name="input_screen_vab0" parent="input_screens" instance=ExtResource( 10 )]
+transform = Transform( -2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 7.3346, 1.44445, 19.9518 )
+
+[node name="input_screen_vab1" parent="input_screens" instance=ExtResource( 10 )]
+transform = Transform( -2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 7.3346, 11.4444, 19.9518 )
+
+[node name="input_screen_vab2" parent="input_screens" instance=ExtResource( 10 )]
+transform = Transform( -2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 7.3346, 21.4444, 19.9518 )
+
+[node name="input_screen_vab3" parent="input_screens" instance=ExtResource( 10 )]
+transform = Transform( -2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 7.3346, 31.4444, 19.9518 )
+
+[node name="input_screen_vab4" parent="input_screens" instance=ExtResource( 10 )]
+transform = Transform( -2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 7.3346, 41.4445, 19.9518 )
+
+[node name="input_screen_vab5" parent="input_screens" instance=ExtResource( 10 )]
+transform = Transform( -2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 7.3346, 61.4445, 19.9518 )
+
+[node name="input_screen_rocket_bottom" parent="input_screens" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -305.78, 1.44445, 11.0893 )
+
+[node name="input_screen_rocket_top" parent="input_screens" instance=ExtResource( 10 )]
+transform = Transform( -1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, -306.369, 11.4444, 12.6037 )
+
+[node name="XOR_Riddle" parent="." instance=ExtResource( 11 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -13, 1, 26 )
+reward_path = "../upgrades/upgrade3"

@@ -1,0 +1,109 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/mat_depth.shader" type="Shader" id=1]
+[ext_resource path="res://msh/morse_light.obj" type="ArrayMesh" id=2]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 1 )
+shader_param/u_col = Color( 0, 0, 0, 1 )
+shader_param/u_far = 1000.0
+shader_param/u_dist_correction = 0.1
+
+[sub_resource type="Animation" id=3]
+resource_name = "Off"
+length = 3.0
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:material/0:shader_param/u_col:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0.172549, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 3 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:material/0:shader_param/u_col:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 3 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath(".:material/0:shader_param/u_col:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 3 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath(".:material/0:shader_param/u_col:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 3 )
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "On"
+length = 3.0
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:material/0:shader_param/u_col:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0.172549, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 3 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:material/0:shader_param/u_col:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 3 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath(".:material/0:shader_param/u_col:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 3 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath(".:material/0:shader_param/u_col:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 3 )
+}
+
+[node name="xor_light" type="MeshInstance" groups=[
+"depth_mat",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0 )
+mesh = ExtResource( 2 )
+material/0 = SubResource( 1 )
+
+[node name="animation" type="AnimationPlayer" parent="."]
+anims/Off = SubResource( 3 )
+anims/On = SubResource( 2 )

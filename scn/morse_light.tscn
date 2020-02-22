@@ -6,7 +6,7 @@
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 2 )
-shader_param/u_col = Color( 0, 0, 0, 1 )
+shader_param/u_col = Color( 0, 0.0341448, 0.0644957, 1 )
 shader_param/u_far = 1000.0
 shader_param/u_dist_correction = 0.1
 

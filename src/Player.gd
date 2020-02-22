@@ -88,12 +88,14 @@ func process_input_click(delta):
 			if obj.is_in_group("upgrade"):
 				self.set_upgrade_level(self.current_level + 1)
 				obj.start_upgrade()
+			elif obj.is_in_group("xor_button"):
+				obj.get_node("..").button_pressed(obj)
 			elif obj.get_name() == "input_screen_ug":
 				show_code_ui(5, "elevator_ug_check")
 			elif obj.get_name().find("input_screen_vab") == 0:
 				show_code_ui(4, "elevator_vab_check")
 			elif obj.get_name() == "input_screen_rocket_bottom":
-				show_code_ui(5, "elevator_rocket_bottom_check")
+				show_code_ui(3, "elevator_rocket_bottom_check")
 			elif obj.get_name() == "input_screen_rocket_top":
 				self.transform.origin = $teleports/rocket_bottom.transform.origin
 

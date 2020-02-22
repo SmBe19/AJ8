@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/xor_button.obj-834f2bc7188510022f00a9205fe9fd02.mesh"
+
+[deps]
+
+files=[ "res://.import/xor_button.obj-834f2bc7188510022f00a9205fe9fd02.mesh" ]
+
+source_file="res://msh/xor_button.obj"
+dest_files=[ "res://.import/xor_button.obj-834f2bc7188510022f00a9205fe9fd02.mesh", "res://.import/xor_button.obj-834f2bc7188510022f00a9205fe9fd02.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true
