@@ -80,33 +80,33 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 3, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 0 )
 
 [node name="xor_light_1" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.55152, 8.87388, -1 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0592022, 1.75489, -1 )
 material/0 = SubResource( 1 )
 
 [node name="xor_light_2" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 6.87022, -1 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.72477, 1.51128, -1 )
 material/0 = SubResource( 2 )
 
 [node name="xor_light_3" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.064, 6, -1 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.64178, 1.90171, -1 )
 material/0 = SubResource( 3 )
 
 [node name="xor_light_4" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.11936, 12.0212, -1 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.00149, 4.79448, -1 )
 material/0 = SubResource( 4 )
 
 [node name="xor_light_5" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 12.3359, -1 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8173, 4.40459, -1 )
 material/0 = SubResource( 5 )
 
 [node name="xor_light_6" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 14.333, -1 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.61136, 5.61519, -1 )
 material/0 = SubResource( 6 )
 
 [node name="xor_light_7" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.6834, 7.78053, -1 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.55817, 4.38641, -1 )
 material/0 = SubResource( 7 )
 
 [node name="xor_light_8" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6779, 11.9042, -1 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.4996, 1.56585, -1 )
 material/0 = SubResource( 8 )

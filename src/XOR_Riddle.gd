@@ -14,21 +14,21 @@ func button_pressed(button):
 	button.get_node("animation").play("press")
 	match button.get_name():
 		"xor_button_1":
-			update_state(1+8+32+64)
+			update_state(1+8+64)
 		"xor_button_2":
-			update_state(4+16+32)
+			update_state(2+32+128)
 		"xor_button_3":
-			update_state(16+64+128)
+			update_state(4+16+32)
 		"xor_button_4":
-			update_state(2+8+64)
+			update_state(8+16+128)
 		"xor_button_5":
-			update_state(1+4+16+32+128)
+			update_state(16+64)
 		"xor_button_6":
-			update_state(1+16+64+128)
+			update_state(32+64+128)
 		"xor_button_7":
-			update_state(2+16+64)
+			update_state(64+128)
 		"xor_button_8":
-			update_state(4+32+128)
+			update_state(128)
 
 func update_state(val):
 	var old_state = self.state
