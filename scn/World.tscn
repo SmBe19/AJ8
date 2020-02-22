@@ -221,7 +221,13 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 1, 24 )
 [node name="upgrade4" parent="upgrades" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -302, 1, 12 )
 
-[node name="input_screen_ug" parent="." groups=[
-"elevator_ug",
-] instance=ExtResource( 10 )]
+[node name="input_screens" type="Spatial" parent="."]
+
+[node name="input_screen_ug" parent="input_screens" instance=ExtResource( 10 )]
 transform = Transform( -2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 7.3346, -19.5556, 19.9518 )
+
+[node name="input_screen_rocket_bottom" parent="input_screens" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -305.78, 1.44445, 11.0893 )
+
+[node name="input_screen_rocket_top" parent="input_screens" instance=ExtResource( 10 )]
+transform = Transform( -1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, -306.369, 11.4444, 12.6037 )

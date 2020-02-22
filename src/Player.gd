@@ -21,7 +21,7 @@ var current_level
 var camera
 var helper
 
-var elevator_ug_ui = preload("res://scn/CodeUI.tscn")
+var code_ui = preload("res://scn/CodeUI.tscn")
 
 func _ready():
 	camera = $RotationHelper/Camera
@@ -88,15 +88,26 @@ func process_input_click(delta):
 			if obj.is_in_group("upgrade"):
 				self.set_upgrade_level(self.current_level + 1)
 				obj.start_upgrade()
-			elif obj.is_in_group("elevator_ug"):
-				var ui = elevator_ug_ui.instance()
-				ui.code_length = 5
-				ui.connect("code_entered", self, "elevator_ug_check")
-				$"/root/Root".add_child(ui)
+			elif obj.get_name() == "input_screen_ug":
+				show_code_ui(5, "elevator_ug_check")
+			elif obj.get_name() == "input_screen_rocket_bottom":
+				show_code_ui(5, "elevator_rocket_bottom_check")
+			elif obj.get_name() == "input_screen_rocket_top":
+				self.transform.origin = $teleports/rocket_bottom.transform.origin
+
+func show_code_ui(length, callback):
+	var ui = code_ui.instance()
+	ui.code_length = length
+	ui.connect("code_entered", self, callback)
+	$"/root/Root".add_child(ui)
 
 func elevator_ug_check(code):
 	if code == "2AFHB":
 		self.transform.origin = $teleports/vab_0.transform.origin
+
+func elevator_rocket_bottom_check(code):
+	if code == "X57":
+		self.transform.origin = $teleports/rocket_top.transform.origin
 
 func _input(event):
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
