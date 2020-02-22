@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=2]
+
+[ext_resource path="res://src/mat_depth_cutout.shader" type="Shader" id=1]
+[ext_resource path="res://img/grass.png" type="Texture" id=2]
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/u_col = Color( 0, 0, 0, 1 )
+shader_param/u_far = 10.0
+shader_param/u_dist_correction = 1.0
+shader_param/u_cutout = ExtResource( 2 )
