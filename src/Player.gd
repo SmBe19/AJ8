@@ -90,6 +90,8 @@ func process_input_click(delta):
 				obj.start_upgrade()
 			elif obj.get_name() == "input_screen_ug":
 				show_code_ui(5, "elevator_ug_check")
+			elif obj.get_name().find("input_screen_vab") == 0:
+				show_code_ui(4, "elevator_vab_check")
 			elif obj.get_name() == "input_screen_rocket_bottom":
 				show_code_ui(5, "elevator_rocket_bottom_check")
 			elif obj.get_name() == "input_screen_rocket_top":
@@ -104,6 +106,14 @@ func show_code_ui(length, callback):
 func elevator_ug_check(code):
 	if code == "2AFHB":
 		self.transform.origin = $teleports/vab_0.transform.origin
+
+func elevator_vab_check(code):
+	if code == "1969":
+		self.transform.origin = $teleports/vab_roof.transform.origin
+	elif code == "0000":
+		self.transform.origin = $teleports/vab_0.transform.origin
+	else:
+		self.transform.origin = get_node("teleports/vab_" + str(code.hash() % 6)).transform.origin
 
 func elevator_rocket_bottom_check(code):
 	if code == "X57":
