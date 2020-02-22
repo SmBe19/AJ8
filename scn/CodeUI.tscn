@@ -1,0 +1,241 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/CodeUI.gd" type="Script" id=1]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://fnt/OpenSans-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = SubResource( 1 )
+
+[node name="CodeUI" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 512.0
+margin_bottom = 300.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bg" type="PanelContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -53.0
+margin_top = -53.5
+margin_right = 53.0
+margin_bottom = 53.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="vbox" type="VBoxContainer" parent="bg"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 109.0
+margin_bottom = 196.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="display" type="Label" parent="bg/vbox"]
+margin_right = 102.0
+margin_bottom = 45.0
+custom_fonts/font = SubResource( 2 )
+text = "_ _ _ _ _"
+
+[node name="grid" type="GridContainer" parent="bg/vbox"]
+margin_top = 49.0
+margin_right = 102.0
+margin_bottom = 189.0
+columns = 4
+
+[node name="0" type="Button" parent="bg/vbox/grid"]
+margin_right = 22.0
+margin_bottom = 20.0
+text = "0"
+
+[node name="1" type="Button" parent="bg/vbox/grid"]
+margin_left = 26.0
+margin_right = 48.0
+margin_bottom = 20.0
+text = "1"
+
+[node name="2" type="Button" parent="bg/vbox/grid"]
+margin_left = 52.0
+margin_right = 73.0
+margin_bottom = 20.0
+text = "2"
+
+[node name="3" type="Button" parent="bg/vbox/grid"]
+margin_left = 77.0
+margin_right = 102.0
+margin_bottom = 20.0
+text = "3"
+
+[node name="4" type="Button" parent="bg/vbox/grid"]
+margin_top = 24.0
+margin_right = 22.0
+margin_bottom = 44.0
+text = "4"
+
+[node name="5" type="Button" parent="bg/vbox/grid"]
+margin_left = 26.0
+margin_top = 24.0
+margin_right = 48.0
+margin_bottom = 44.0
+text = "5"
+
+[node name="6" type="Button" parent="bg/vbox/grid"]
+margin_left = 52.0
+margin_top = 24.0
+margin_right = 73.0
+margin_bottom = 44.0
+text = "6"
+
+[node name="7" type="Button" parent="bg/vbox/grid"]
+margin_left = 77.0
+margin_top = 24.0
+margin_right = 102.0
+margin_bottom = 44.0
+text = "7"
+
+[node name="8" type="Button" parent="bg/vbox/grid"]
+margin_top = 48.0
+margin_right = 22.0
+margin_bottom = 68.0
+text = "8"
+
+[node name="9" type="Button" parent="bg/vbox/grid"]
+margin_left = 26.0
+margin_top = 48.0
+margin_right = 48.0
+margin_bottom = 68.0
+text = "9"
+
+[node name="A" type="Button" parent="bg/vbox/grid"]
+margin_left = 52.0
+margin_top = 48.0
+margin_right = 73.0
+margin_bottom = 68.0
+text = "A"
+
+[node name="B" type="Button" parent="bg/vbox/grid"]
+margin_left = 77.0
+margin_top = 48.0
+margin_right = 102.0
+margin_bottom = 68.0
+text = "B"
+
+[node name="C" type="Button" parent="bg/vbox/grid"]
+margin_top = 72.0
+margin_right = 22.0
+margin_bottom = 92.0
+text = "C"
+
+[node name="D" type="Button" parent="bg/vbox/grid"]
+margin_left = 26.0
+margin_top = 72.0
+margin_right = 48.0
+margin_bottom = 92.0
+text = "D"
+
+[node name="E" type="Button" parent="bg/vbox/grid"]
+margin_left = 52.0
+margin_top = 72.0
+margin_right = 73.0
+margin_bottom = 92.0
+text = "E"
+
+[node name="F" type="Button" parent="bg/vbox/grid"]
+margin_left = 77.0
+margin_top = 72.0
+margin_right = 102.0
+margin_bottom = 92.0
+text = "F"
+
+[node name="H" type="Button" parent="bg/vbox/grid"]
+margin_top = 96.0
+margin_right = 22.0
+margin_bottom = 116.0
+text = "H"
+
+[node name="J" type="Button" parent="bg/vbox/grid"]
+margin_left = 26.0
+margin_top = 96.0
+margin_right = 48.0
+margin_bottom = 116.0
+text = "J"
+
+[node name="K" type="Button" parent="bg/vbox/grid"]
+margin_left = 52.0
+margin_top = 96.0
+margin_right = 73.0
+margin_bottom = 116.0
+text = "K"
+
+[node name="L" type="Button" parent="bg/vbox/grid"]
+margin_left = 77.0
+margin_top = 96.0
+margin_right = 102.0
+margin_bottom = 116.0
+text = "L"
+
+[node name="X" type="Button" parent="bg/vbox/grid"]
+margin_top = 120.0
+margin_right = 22.0
+margin_bottom = 140.0
+text = "X"
+
+[node name="Y" type="Button" parent="bg/vbox/grid"]
+margin_left = 26.0
+margin_top = 120.0
+margin_right = 48.0
+margin_bottom = 140.0
+text = "Y"
+
+[node name="Z" type="Button" parent="bg/vbox/grid"]
+margin_left = 52.0
+margin_top = 120.0
+margin_right = 73.0
+margin_bottom = 140.0
+text = "Z"
+
+[node name="W" type="Button" parent="bg/vbox/grid"]
+margin_left = 77.0
+margin_top = 120.0
+margin_right = 102.0
+margin_bottom = 140.0
+text = "W"
+[connection signal="button_up" from="bg/vbox/grid/0" to="." method="_on_0_button_up"]
+[connection signal="button_up" from="bg/vbox/grid/1" to="." method="_on_1_button_up"]
+[connection signal="button_up" from="bg/vbox/grid/2" to="." method="_on_2_button_up"]
+[connection signal="button_up" from="bg/vbox/grid/3" to="." method="_on_3_button_up"]
+[connection signal="button_up" from="bg/vbox/grid/4" to="." method="_on_4_button_up"]
+[connection signal="button_up" from="bg/vbox/grid/5" to="." method="_on_5_button_up"]
+[connection signal="button_up" from="bg/vbox/grid/6" to="." method="_on_6_button_up"]
+[connection signal="button_up" from="bg/vbox/grid/7" to="." method="_on_7_button_up"]
+[connection signal="button_up" from="bg/vbox/grid/8" to="." method="_on_8_button_up"]
+[connection signal="button_up" from="bg/vbox/grid/9" to="." method="_on_9_button_up"]
+[connection signal="button_up" from="bg/vbox/grid/A" to="." method="_on_A_button_up"]
+[connection signal="button_up" from="bg/vbox/grid/B" to="." method="_on_B_button_up"]
+[connection signal="button_up" from="bg/vbox/grid/C" to="." method="_on_C_button_up"]
+[connection signal="button_up" from="bg/vbox/grid/D" to="." method="_on_D_button_up"]
+[connection signal="button_up" from="bg/vbox/grid/E" to="." method="_on_E_button_up"]
+[connection signal="button_up" from="bg/vbox/grid/F" to="." method="_on_F_button_up"]
+[connection signal="button_up" from="bg/vbox/grid/H" to="." method="_on_H_button_up"]
+[connection signal="button_up" from="bg/vbox/grid/J" to="." method="_on_J_button_up"]
+[connection signal="button_up" from="bg/vbox/grid/K" to="." method="_on_K_button_up"]
+[connection signal="button_up" from="bg/vbox/grid/L" to="." method="_on_L_button_up"]
+[connection signal="button_up" from="bg/vbox/grid/X" to="." method="_on_X_button_up"]
+[connection signal="button_up" from="bg/vbox/grid/Y" to="." method="_on_Y_button_up"]
+[connection signal="button_up" from="bg/vbox/grid/Z" to="." method="_on_Z_button_up"]
+[connection signal="button_up" from="bg/vbox/grid/W" to="." method="_on_W_button_up"]

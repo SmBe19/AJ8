@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://src/Player.gd" type="Script" id=1]
 [ext_resource path="res://msh/level_col.obj" type="ArrayMesh" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://msh/morse_letter.obj" type="ArrayMesh" id=7]
 [ext_resource path="res://scn/morse_light.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/mat_depth.shader" type="Shader" id=9]
+[ext_resource path="res://scn/input_screen.tscn" type="PackedScene" id=10]
 
 [sub_resource type="CapsuleShape" id=3]
 radius = 0.5
@@ -69,7 +70,7 @@ shader_param/u_dist_correction = 0.1
 [node name="World" type="Spatial"]
 
 [node name="Player" type="KinematicBody" parent="."]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, -20, 20 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7, -20, 17 )
 script = ExtResource( 1 )
 mat_depth = [ ExtResource( 4 ), ExtResource( 3 ) ]
 
@@ -82,6 +83,35 @@ shape = SubResource( 3 )
 [node name="Camera" type="Camera" parent="Player/RotationHelper"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0 )
 far = 1000.0
+
+[node name="teleports" type="Node" parent="Player"]
+
+[node name="vab_0" type="Spatial" parent="Player/teleports"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1, 18 )
+
+[node name="vab_1" type="Spatial" parent="Player/teleports"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 11, 18 )
+
+[node name="vab_2" type="Spatial" parent="Player/teleports"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 21, 18 )
+
+[node name="vab_3" type="Spatial" parent="Player/teleports"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 31, 18 )
+
+[node name="vab_4" type="Spatial" parent="Player/teleports"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 41, 18 )
+
+[node name="vab_5" type="Spatial" parent="Player/teleports"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 51, 18 )
+
+[node name="vab_roof" type="Spatial" parent="Player/teleports"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 61, 18 )
+
+[node name="rocket_bottom" type="Spatial" parent="Player/teleports"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -300, 1, 10 )
+
+[node name="rocket_top" type="Spatial" parent="Player/teleports"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -316, 11, 18 )
 
 [node name="CollisionLvl" type="StaticBody" parent="."]
 
@@ -104,83 +134,94 @@ visible = false
 mesh = SubResource( 2 )
 material/0 = ExtResource( 4 )
 
-[node name="upgrade1" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -20, -9 )
+[node name="morse" type="Spatial" parent="."]
 
-[node name="upgrade2" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -38, -20, 64 )
-
-[node name="upgrade3" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 1, 24 )
-
-[node name="upgrade4" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -302, 1, 12 )
-
-[node name="jumparea1" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44, -20, 18 )
-jumpDir = Vector3( 1, 0, 0 )
-
-[node name="jumparea2" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -20, 61 )
-jumpDir = Vector3( 0, 0, -1 )
-
-[node name="jumparea3" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 48, -20, 18 )
-jumpDir = Vector3( -1, 0, 0 )
-
-[node name="jumparea4" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 42, -20, 52 )
-jumpDir = Vector3( -1, 0, -1 )
-
-[node name="jumparea5" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27, -20, -16 )
-jumpDir = Vector3( 1, 0, 1 )
-
-[node name="jumparea6" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 42, -20, -16 )
-jumpDir = Vector3( -1, 0, 1 )
-
-[node name="morse_letter" type="MeshInstance" parent="."]
+[node name="morse_letter" type="MeshInstance" parent="morse"]
 transform = Transform( 0.965926, -0.258819, 9.57573e-08, 8.74228e-08, -4.37114e-08, -1, 0.258819, 0.965926, -1.95953e-08, 9.95352, -19.3853, 9.1814 )
 mesh = ExtResource( 7 )
 material/0 = ExtResource( 3 )
 
-[node name="morse_light_a" parent="." instance=ExtResource( 8 )]
+[node name="morse_light_a" parent="morse" instance=ExtResource( 8 )]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 14.081, -16.5, 11.36 )
 material/0 = SubResource( 5 )
 code = "A"
 
-[node name="morse_light_i" parent="." instance=ExtResource( 8 )]
+[node name="morse_light_i" parent="morse" instance=ExtResource( 8 )]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 14.081, -16.5, 24.8548 )
 material/0 = SubResource( 6 )
 code = "I"
 
-[node name="morse_light_q" parent="." instance=ExtResource( 8 )]
+[node name="morse_light_q" parent="morse" instance=ExtResource( 8 )]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.526461, -16.5, 24.8548 )
 material/0 = SubResource( 7 )
 code = "Q"
 
-[node name="morse_light_x" parent="." instance=ExtResource( 8 )]
+[node name="morse_light_x" parent="morse" instance=ExtResource( 8 )]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.427327, -16.5, 11.6207 )
 material/0 = SubResource( 8 )
 code = "X"
 
-[node name="morse_light_n" parent="." instance=ExtResource( 8 )]
+[node name="morse_light_n" parent="morse" instance=ExtResource( 8 )]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -2.11859, -16.5, 18.0554 )
 material/0 = SubResource( 9 )
 code = "N"
 
-[node name="morse_light_m" parent="." instance=ExtResource( 8 )]
+[node name="morse_light_m" parent="morse" instance=ExtResource( 8 )]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 16.8269, -16.5, 18.0554 )
 material/0 = SubResource( 10 )
 code = "M"
 
-[node name="morse_light_d" parent="." instance=ExtResource( 8 )]
+[node name="morse_light_d" parent="morse" instance=ExtResource( 8 )]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 7.25226, -16.5, 27.6168 )
 material/0 = SubResource( 11 )
 code = "D"
 
-[node name="morse_light_y" parent="." instance=ExtResource( 8 )]
+[node name="morse_light_y" parent="morse" instance=ExtResource( 8 )]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 8.56842, -16.5, 15.8161 )
 material/0 = SubResource( 12 )
 code = "Y"
+
+[node name="jumpareas" type="Spatial" parent="."]
+
+[node name="jumparea1" parent="jumpareas" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44, -20, 18 )
+jumpDir = Vector3( 1, 0, 0 )
+
+[node name="jumparea2" parent="jumpareas" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -20, 61 )
+jumpDir = Vector3( 0, 0, -1 )
+
+[node name="jumparea3" parent="jumpareas" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 48, -20, 18 )
+jumpDir = Vector3( -1, 0, 0 )
+
+[node name="jumparea4" parent="jumpareas" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 42, -20, 52 )
+jumpDir = Vector3( -1, 0, -1 )
+
+[node name="jumparea5" parent="jumpareas" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27, -20, -16 )
+jumpDir = Vector3( 1, 0, 1 )
+
+[node name="jumparea6" parent="jumpareas" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 42, -20, -16 )
+jumpDir = Vector3( -1, 0, 1 )
+
+[node name="upgrades" type="Spatial" parent="."]
+
+[node name="upgrade1" parent="upgrades" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -20, -9 )
+
+[node name="upgrade2" parent="upgrades" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -38, -20, 64 )
+
+[node name="upgrade3" parent="upgrades" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 1, 24 )
+
+[node name="upgrade4" parent="upgrades" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -302, 1, 12 )
+
+[node name="input_screen_ug" parent="." groups=[
+"elevator_ug",
+] instance=ExtResource( 10 )]
+transform = Transform( -2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 7.3346, -19.5556, 19.9518 )

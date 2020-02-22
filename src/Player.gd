@@ -21,6 +21,8 @@ var current_level
 var camera
 var helper
 
+var elevator_ug_ui = preload("res://scn/CodeUI.tscn")
+
 func _ready():
 	camera = $RotationHelper/Camera
 	helper = $RotationHelper
@@ -75,16 +77,26 @@ func process_input_movement(delta):
 	vel = move_and_slide(vel, Vector3(0, 1, 0))
 
 func process_input_click(delta):
-	if Input.is_action_just_pressed("perform_action"):
+	if Input.is_action_just_pressed("perform_action") and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		var mouse_pos = get_viewport().get_mouse_position()
 		var ray_from = self.camera.project_ray_origin(mouse_pos)
 		var ray_to = ray_from + self.camera.project_ray_normal(mouse_pos) * self.camera.far
 		var space_state = get_world().direct_space_state
 		var selection = space_state.intersect_ray(ray_from, ray_to)
 		if selection:
-			if selection.collider.is_in_group("upgrade"):
+			var obj = selection.collider
+			if obj.is_in_group("upgrade"):
 				self.set_upgrade_level(self.current_level + 1)
-				selection.collider.start_upgrade()
+				obj.start_upgrade()
+			elif obj.is_in_group("elevator_ug"):
+				var ui = elevator_ug_ui.instance()
+				ui.code_length = 5
+				ui.connect("code_entered", self, "elevator_ug_check")
+				$"/root/Root".add_child(ui)
+
+func elevator_ug_check(code):
+	if code == "2AFHB":
+		self.transform.origin = $teleports/vab_0.transform.origin
 
 func _input(event):
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
