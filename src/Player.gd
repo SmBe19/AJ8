@@ -111,10 +111,10 @@ func set_upgrade_level(level):
 	match level:
 		0:
 			self.new_far = 5
-			self.new_correction = 1
+			self.new_correction = 0.5
 		1:
 			self.new_far = 15
-			self.new_correction = 1
+			self.new_correction = 0.4
 		2:
 			self.new_far = 40
 			self.new_correction = 0.25

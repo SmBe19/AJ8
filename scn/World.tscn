@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/Player.gd" type="Script" id=1]
-[ext_resource path="res://msh/level.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://msh/level_col.obj" type="ArrayMesh" id=2]
 [ext_resource path="res://mat/depth_red.tres" type="Material" id=3]
 [ext_resource path="res://mat/depth.tres" type="Material" id=4]
+[ext_resource path="res://scn/jumparea.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scn/upgrade.tscn" type="PackedScene" id=6]
 
 [sub_resource type="CapsuleShape" id=3]
@@ -17,7 +18,7 @@ data = PoolVector3Array( -63.1667, -21, 19.5167, -3.1667, -21, 19.8167, -3.1667,
 [node name="World" type="Spatial"]
 
 [node name="Player" type="KinematicBody" parent="."]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, -20, 0 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, -20, 20 )
 script = ExtResource( 1 )
 mat_depth = [ ExtResource( 4 ), ExtResource( 3 ) ]
 
@@ -36,7 +37,6 @@ far = 1000.0
 [node name="level_col" type="MeshInstance" parent="CollisionLvl"]
 mesh = ExtResource( 2 )
 material/0 = ExtResource( 4 )
-material/1 = ExtResource( 4 )
 
 [node name="CollisionShape" type="CollisionShape" parent="CollisionLvl"]
 shape = SubResource( 4 )
@@ -64,3 +64,27 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 1, 24 )
 
 [node name="upgrade4" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -302, 1, 12 )
+
+[node name="jumparea1" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44, -20, 18 )
+jumpDir = Vector3( 1, 0, 0 )
+
+[node name="jumparea2" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -20, 61 )
+jumpDir = Vector3( 0, 0, -1 )
+
+[node name="jumparea3" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 48, -20, 18 )
+jumpDir = Vector3( -1, 0, 0 )
+
+[node name="jumparea4" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 42, -20, 52 )
+jumpDir = Vector3( -1, 0, -1 )
+
+[node name="jumparea5" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27, -20, -16 )
+jumpDir = Vector3( 1, 0, 1 )
+
+[node name="jumparea6" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 42, -20, -16 )
+jumpDir = Vector3( -1, 0, 1 )
