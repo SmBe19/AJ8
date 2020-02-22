@@ -95,13 +95,19 @@ func _input(event):
 		camera_rot.x = clamp(camera_rot.x, -CAM_ANGLE, CAM_ANGLE)
 		self.helper.rotation_degrees = camera_rot
 
+func apply_level_handle_mat(mat, interp):
+	mat.set_shader_param("u_far", lerp(self.old_far, self.new_far, interp))
+	mat.set_shader_param("u_dist_correction", lerp(self.old_correction, self.new_correction, interp))
+
 func apply_level(delta):
 	self.level_progress = min(1, self.level_progress + delta * LEVEL_ANIMATION_SPEED)
 	var interp = smoothstep(0, 1, self.level_progress)
 	self.camera.far = lerp(self.old_far, self.new_far, interp)
 	for mat in self.mat_depth:
-		mat.set_shader_param("u_far", lerp(self.old_far, self.new_far, interp))
-		mat.set_shader_param("u_dist_correction", lerp(self.old_correction, self.new_correction, interp))
+		self.apply_level_handle_mat(mat, interp)
+	for node in get_tree().get_nodes_in_group("depth_mat"):
+		self.apply_level_handle_mat(node.get_surface_material(0), interp)
+
 
 func set_upgrade_level(level):
 	self.current_level = level
