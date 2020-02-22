@@ -5,5 +5,5 @@
 [resource]
 shader = ExtResource( 1 )
 shader_param/u_col = Color( 0, 0, 0, 1 )
-shader_param/u_far = 10.0
-shader_param/u_dist_correction = 1.0
+shader_param/u_far = 1000.0
+shader_param/u_dist_correction = 0.1

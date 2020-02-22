@@ -67,7 +67,10 @@ func _input(event):
 
 func set_upgrade_level(level):
 	var far = 1000
-	var correction = 0.1
+	var correction = 0.01
+	if level == 0:
+		far = 5
+		correction = 1
 	self.camera.far = far
 	for mat in self.mat_depth:
 		mat.set_shader_param("u_far", far)
