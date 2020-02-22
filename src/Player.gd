@@ -6,6 +6,8 @@ const ACCEL = 4.5
 const DEACCEL= 16
 const CAM_ANGLE = 50
 
+export(Array, Material) var mat_depth
+
 var vel = Vector3()
 
 var camera
@@ -16,6 +18,7 @@ func _ready():
 	helper = $RotationHelper
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	self.set_upgrade_level(0)
 
 
 func _physics_process(delta):
@@ -61,3 +64,11 @@ func _input(event):
 		var camera_rot = helper.rotation_degrees
 		camera_rot.x = clamp(camera_rot.x, -CAM_ANGLE, CAM_ANGLE)
 		helper.rotation_degrees = camera_rot
+
+func set_upgrade_level(level):
+	var far = 1000
+	var correction = 0.1
+	self.camera.far = far
+	for mat in self.mat_depth:
+		mat.set_shader_param("u_far", far)
+		mat.set_shader_param("u_dist_correction", correction)
