@@ -75,7 +75,7 @@ script = ExtResource( 13 )
 material = ExtResource( 4 )
 
 [node name="Player" type="KinematicBody" parent="."]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -12, 1, 17 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -292, 1, 11 )
 script = ExtResource( 1 )
 mat_depth = [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 12 ) ]
 
