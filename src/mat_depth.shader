@@ -13,5 +13,7 @@ void fragment() {
 	pos.z = -pos.z;
 	ALBEDO.rgb = vec3(0.);
 	float closeness = 1./(1.+length(pos));
+	float correction = 1./(1.+u_far);
+	closeness = (closeness-correction) / (1.-correction);
 	EMISSION.rgb = mix(vec3(1.), u_col.rgb, closeness);
 }
