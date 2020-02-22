@@ -1,6 +1,6 @@
 extends KinematicBody
 
-const MOUSE_SENSITIVITY = 0.0005
+const MOUSE_SENSITIVITY = 0.002
 const MAX_SPEED = 10
 const ACCEL = 4.5
 const DEACCEL= 16
