@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://src/Player.gd" type="Script" id=1]
 [ext_resource path="res://msh/testlvl.obj" type="ArrayMesh" id=2]
 [ext_resource path="res://mat/depth.tres" type="Material" id=3]
 [ext_resource path="res://src/mat_depth.shader" type="Shader" id=4]
+[ext_resource path="res://msh/level_col.obj" type="ArrayMesh" id=5]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 64, 1, 64 )
@@ -22,6 +23,7 @@ points = PoolVector3Array( -1.21802, -2.01802, -1.01802, -1.21802, -2.01802, -0.
 [sub_resource type="ShaderMaterial" id=8]
 shader = ExtResource( 4 )
 shader_param/u_col = Color( 0, 0.180392, 1, 1 )
+shader_param/u_far = 5.0
 
 [sub_resource type="ConvexPolygonShape" id=6]
 points = PoolVector3Array( 0.727928, -2.01802, -0.765685, 0.727928, 2.01802, -0.765685, 0.730457, -1.98261, -1, 0.730457, 1.98261, -1, 0.763991, -2.01802, 1.03604, 0.763991, 2.01802, 1.03604, 1.01618, -2.01802, -1.01802, 1.01618, -2.01802, 1.03604, 1.01618, 2.01802, -1.01802, 1.01618, 2.01802, 1.03604 )
@@ -84,3 +86,9 @@ shape = SubResource( 6 )
 [node name="CollisionShape" type="CollisionShape" parent="Wall2"]
 transform = Transform( 0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, -1, 2, -5 )
 shape = SubResource( 7 )
+
+[node name="CollisionLvl" type="StaticBody" parent="."]
+
+[node name="level_col" type="MeshInstance" parent="CollisionLvl"]
+mesh = ExtResource( 5 )
+material/0 = ExtResource( 3 )
