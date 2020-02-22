@@ -1,5 +1,6 @@
 shader_type spatial;
 
+
 varying vec4 v_pos;
 uniform vec4 u_col : hint_color = vec4(0., 0., 0., 1.);
 uniform float u_far = 10.;
@@ -18,4 +19,5 @@ void fragment() {
 	float far_closeness = 1./(1.+u_far*u_dist_correction);
 	closeness = (closeness - far_closeness)/(1.-far_closeness);
 	EMISSION.rgb = mix(vec3(1.), u_col.rgb, closeness);
+	
 }
