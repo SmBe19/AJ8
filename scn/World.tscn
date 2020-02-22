@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/Player.gd" type="Script" id=1]
-[ext_resource path="res://msh/level_col.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://msh/level.obj" type="ArrayMesh" id=2]
 [ext_resource path="res://mat/depth_red.tres" type="Material" id=3]
 [ext_resource path="res://mat/depth.tres" type="Material" id=4]
 [ext_resource path="res://scn/upgrade.tscn" type="PackedScene" id=6]
@@ -36,6 +36,7 @@ far = 1000.0
 [node name="level_col" type="MeshInstance" parent="CollisionLvl"]
 mesh = ExtResource( 2 )
 material/0 = ExtResource( 4 )
+material/1 = ExtResource( 4 )
 
 [node name="CollisionShape" type="CollisionShape" parent="CollisionLvl"]
 shape = SubResource( 4 )
