@@ -38,6 +38,7 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	self.set_upgrade_level(0)
 	self.level_progress = 1
+	$"../debug_light".hide()
 
 func _process(delta):
 	self.apply_level(delta)
@@ -108,6 +109,8 @@ func process_input_click(delta):
 				show_code_ui(5, "elevator_ug_check")
 			elif obj.get_name().find("input_screen_vab") == 0:
 				show_code_ui(4, "elevator_vab_check")
+			elif obj.get_name() == "input_screen_exit":
+				show_code_ui(5, "exit_check")
 			elif obj.get_name() == "input_screen_rocket_bottom":
 				show_code_ui(3, "elevator_rocket_bottom_check")
 			elif obj.get_name().find("puzzle_") == 0:
@@ -158,6 +161,10 @@ func elevator_vab_check(code):
 		self.transform.origin = $teleports/vab_0.transform.origin
 	else:
 		self.transform.origin = get_node("teleports/vab_" + str(code.hash() % 6)).transform.origin
+
+func exit_check(code):
+	if code == "LC39A":
+		$"../vab_door/animation".play("open_vab")
 
 func elevator_rocket_bottom_check(code):
 	if code == "X57":

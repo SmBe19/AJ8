@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://src/Player.gd" type="Script" id=1]
 [ext_resource path="res://msh/elevator_vab_roof.obj" type="ArrayMesh" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://msh/elevator_ug_riddle.obj" type="ArrayMesh" id=17]
 [ext_resource path="res://scn/space_station.tscn" type="PackedScene" id=18]
 [ext_resource path="res://msh/level_col.obj" type="ArrayMesh" id=19]
+[ext_resource path="res://msh/vab_door.obj" type="ArrayMesh" id=20]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -107,6 +108,43 @@ shader_param/u_dist_correction = 0.1
 [sub_resource type="BoxShape" id=13]
 extents = Vector3( 2, 1, 1 )
 
+[sub_resource type="ConvexPolygonShape" id=14]
+points = PoolVector3Array( -2, -14.1903, -7.15909, -2, -14.1903, 7.15909, -2, 14.1903, -7.15909, -2, 14.1903, 7.15909, 2.22685, 15.1364, -7.63636, 2.22685, 15.1364, 7.63636, 2.22727, -15.1364, -7.63636, 2.22727, -15.1364, 7.63636 )
+
+[sub_resource type="Animation" id=15]
+resource_name = "open_vab"
+length = 10.0
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:translation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -68, -0.25, 0, 0.25, 0, -68, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.5, 10 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:translation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 15, -0.25, 0, 4.04, 2, 45, -2.96, -3, 0.25, 0 ),
+"times": PoolRealArray( 0.5, 10 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath(".:translation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 11, -0.25, 0, 0.25, 0, 11, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.5, 10 )
+}
+
 [node name="World" type="Spatial"]
 
 [node name="level" parent="." instance=ExtResource( 14 )]
@@ -114,7 +152,7 @@ script = ExtResource( 13 )
 material = ExtResource( 4 )
 
 [node name="Player" type="KinematicBody" parent="."]
-transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -46.5446, 11, 20.8323 )
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -50, 1, 8 )
 script = ExtResource( 1 )
 mat_depth = [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 12 ) ]
 
@@ -380,6 +418,9 @@ transform = Transform( -2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 7.3346,
 [node name="input_screen_vab5" parent="input_screens" instance=ExtResource( 10 )]
 transform = Transform( -2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 7.3346, 61.4445, 19.9518 )
 
+[node name="input_screen_exit" parent="input_screens" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -64.9943, 1.44445, 19.9518 )
+
 [node name="input_screen_rocket_bottom" parent="input_screens" instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -305.78, 1.44445, 11.0893 )
 
@@ -387,7 +428,7 @@ transform = Transform( 1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -305.78, 
 transform = Transform( -1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, -306.369, 11.4444, 12.6037 )
 
 [node name="XOR_Riddle" parent="." instance=ExtResource( 11 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -13, 1, 26.1 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -13, 1, 25.4842 )
 reward_paths = [ "../upgrades/upgrade3", "../elevator_signs/elevator_vab_0" ]
 
 [node name="elevator_signs" type="Spatial" parent="."]
@@ -423,7 +464,7 @@ mesh = ExtResource( 2 )
 material/0 = ExtResource( 12 )
 
 [node name="elevator_vab_0" type="MeshInstance" parent="elevator_signs"]
-transform = Transform( -4, -6.03983e-07, 2.64009e-14, 0, -1.74846e-07, -4, 6.03983e-07, -4, 1.74846e-07, 5.80929, 4.64853, 26.3127 )
+transform = Transform( -4, -6.03983e-07, 2.64009e-14, 0, -1.74846e-07, -4, 6.03983e-07, -4, 1.74846e-07, 5.80929, 4.64853, 25.5815 )
 mesh = ExtResource( 15 )
 material/0 = ExtResource( 12 )
 
@@ -453,3 +494,19 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -315, 11, 3 )
 
 [node name="CollisionShape" type="CollisionShape" parent="puzzles/puzzle_2"]
 shape = SubResource( 13 )
+
+[node name="vab_door" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -68, 15, 11 )
+
+[node name="vab_door" type="MeshInstance" parent="vab_door"]
+mesh = ExtResource( 20 )
+material/0 = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="vab_door"]
+shape = SubResource( 14 )
+
+[node name="animation" type="AnimationPlayer" parent="vab_door"]
+anims/open_vab = SubResource( 15 )
+
+[node name="debug_light" type="DirectionalLight" parent="."]
+transform = Transform( 0.739243, 2.20312e-08, -0.673438, 0.461985, 0.727593, 0.507128, 0.489989, -0.686009, 0.537868, 0, 28.2737, 49.8675 )

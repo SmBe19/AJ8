@@ -42,8 +42,8 @@ func update_state(val):
 			get_node("xor_light_" + str(i+1) + "/animation").play("On")
 	if not self.solved and self.state == 256-1:
 		for reward_path in self.reward_paths:
-			get_node(self.reward_path).translate(Vector3(-1000, -1000, -1000))
-			var animator = get_node(self.reward_path + "/upgrade/animation")
+			get_node(reward_path).translate(Vector3(-1000, -1000, -1000))
+			var animator = get_node(reward_path + "/upgrade/animation")
 			if animator:
 				animator.play("show")
 		self.solved = true
