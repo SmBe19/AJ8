@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://src/Player.gd" type="Script" id=1]
 [ext_resource path="res://msh/elevator_vab_roof.obj" type="ArrayMesh" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://msh/level_col.obj" type="ArrayMesh" id=19]
 [ext_resource path="res://msh/vab_door.obj" type="ArrayMesh" id=20]
 [ext_resource path="res://msh/rocket.obj" type="ArrayMesh" id=21]
+[ext_resource path="res://msh/palette_suzanne.obj" type="ArrayMesh" id=22]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -524,3 +525,13 @@ material/3 = ExtResource( 4 )
 material/4 = ExtResource( 4 )
 material/5 = ExtResource( 4 )
 material/6 = ExtResource( 4 )
+
+[node name="palette_suzanne" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -33.203, 0.26, -3.221 )
+mesh = ExtResource( 22 )
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 4 )
+material/3 = ExtResource( 4 )
+material/4 = ExtResource( 4 )
+material/5 = ExtResource( 4 )
