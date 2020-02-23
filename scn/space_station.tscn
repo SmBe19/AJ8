@@ -44,7 +44,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="SphereShape" id=4]
-radius = 400.0
+radius = 700.0
 
 [node name="Spatial" type="Spatial"]
 script = ExtResource( 3 )
@@ -62,7 +62,7 @@ anims/orbit = SubResource( 3 )
 [node name="station_parent" type="Spatial" parent="."]
 
 [node name="space_station" type="MeshInstance" parent="station_parent"]
-transform = Transform( -0.993827, 0, -0.110941, 0, 1, 0, 0.110941, 0, -0.993827, 0, 0, -303 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -303 )
 mesh = ExtResource( 1 )
 material/0 = ExtResource( 2 )
 

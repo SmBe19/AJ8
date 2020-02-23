@@ -41,7 +41,6 @@ func _ready():
 	self.should_capture_input = true
 	self.set_upgrade_level(0)
 	self.level_progress = 1
-	print(get_path())
 	$"../debug_light".hide()
 
 func _process(delta):
@@ -223,8 +222,8 @@ func set_upgrade_level(level):
 			self.new_far = 40
 			self.new_correction = 0.25
 		3:
-			self.new_far = 400
-			self.new_correction = 0.05
+			self.new_far = 500
+			self.new_correction = 0.025
 		4:
 			self.new_far = 1000
 			self.new_correction = 0.01

@@ -53,7 +53,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 70.0, 15.0 ]
+"values": [ 70.0, 5.0 ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -68,7 +68,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 15.0, 70.0 ]
+"values": [ 5.0, 70.0 ]
 }
 
 [sub_resource type="ConcavePolygonShape" id=4]
@@ -488,37 +488,37 @@ material/0 = SubResource( 5 )
 code = "A"
 
 [node name="morse_light_i" parent="morse" instance=ExtResource( 8 )]
-transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 14.081, -16.5, 24.8548 )
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 13.9097, -16.5, 24.4511 )
 material/0 = SubResource( 6 )
 code = "I"
 
 [node name="morse_light_q" parent="morse" instance=ExtResource( 8 )]
-transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.526461, -16.5, 24.8548 )
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.584051, -16.5, 24.7283 )
 material/0 = SubResource( 7 )
 code = "Q"
 
 [node name="morse_light_x" parent="morse" instance=ExtResource( 8 )]
-transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.427327, -16.5, 11.6207 )
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.283133, -16.5, 11.3098 )
 material/0 = SubResource( 8 )
 code = "X"
 
 [node name="morse_light_n" parent="morse" instance=ExtResource( 8 )]
-transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -2.11859, -16.5, 18.0554 )
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -2.32213, -16.5, 18.0554 )
 material/0 = SubResource( 9 )
 code = "N"
 
 [node name="morse_light_m" parent="morse" instance=ExtResource( 8 )]
-transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 16.8269, -16.5, 18.0554 )
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 16.6405, -16.5, 18.0554 )
 material/0 = SubResource( 10 )
 code = "M"
 
 [node name="morse_light_d" parent="morse" instance=ExtResource( 8 )]
-transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 7.25226, -16.5, 27.6168 )
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 7.25226, -16.5, 27.4107 )
 material/0 = SubResource( 11 )
 code = "D"
 
 [node name="morse_light_y" parent="morse" instance=ExtResource( 8 )]
-transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 8.56842, -16.5, 15.8161 )
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 8.54862, -16.5, 15.8161 )
 material/0 = SubResource( 12 )
 code = "Y"
 
@@ -649,7 +649,7 @@ mesh = ExtResource( 17 )
 material/0 = ExtResource( 12 )
 
 [node name="space_station" parent="." instance=ExtResource( 18 )]
-transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 600, 0 )
+transform = Transform( -0.15917, 0.0720942, -0.0973002, -0.103281, -0.164721, 0.0469049, -0.063229, 0.0875757, 0.168323, 0, 600, 0 )
 
 [node name="puzzles" type="Spatial" parent="."]
 
