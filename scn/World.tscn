@@ -76,7 +76,7 @@ script = ExtResource( 13 )
 material = ExtResource( 4 )
 
 [node name="Player" type="KinematicBody" parent="."]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -12, -20, 18 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -12, 11, 21 )
 script = ExtResource( 1 )
 mat_depth = [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 12 ) ]
 
@@ -338,7 +338,6 @@ transform = Transform( -1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, -306.36
 
 [node name="XOR_Riddle" parent="." instance=ExtResource( 11 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -13, 1, 26 )
-reward_path = "../upgrades/upgrade3"
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 0.923839, -0.142785, 0.355152, 0, 0.927823, 0.37302, -0.38278, -0.344611, 0.85716, 0, 0, 0 )
