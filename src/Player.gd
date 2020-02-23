@@ -61,12 +61,6 @@ func process_input_movement(delta):
 		input_movement_vector.x -= 1
 	if Input.is_action_pressed("move_right"):
 		input_movement_vector.x += 1
-	
-	# TODO remove this hack
-	if Input.is_action_just_pressed("ui_up"):
-		self.set_upgrade_level(self.current_level + 1)
-	elif Input.is_action_just_pressed("ui_down"):
-		self.set_upgrade_level(self.current_level - 1)
 
 	input_movement_vector = input_movement_vector.normalized()
 	dir += -cam_xform.basis.z.normalized() * input_movement_vector.y
