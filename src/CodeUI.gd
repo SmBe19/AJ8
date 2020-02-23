@@ -27,6 +27,7 @@ func update_label():
 		
 func press(key):
 	self.code += key
+	$audio.play()
 	update_label()
 
 func _on_0_button_up():

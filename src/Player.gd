@@ -105,6 +105,7 @@ func process_input_click(delta):
 			var obj = selection.collider
 			if obj.is_in_group("upgrade"):
 				self.set_upgrade_level(self.current_level + 1)
+				$upgrade.play()
 				obj.start_upgrade()
 			elif obj.is_in_group("xor_button"):
 				obj.get_node("..").button_pressed(obj)
@@ -147,6 +148,11 @@ func show_puzzle(idx):
 func puzzle_solved():
 	self.puzzle_solved[self.current_puzzle] = true
 	self.set_upgrade_level(self.old_current_level)
+	for solved in self.puzzle_solved:
+		if not solved:
+			return
+	$"../Rocket/animation".play("finished")
+	$"../Rocket/camera".current = true
 
 func show_code_ui(length, callback):
 	var ui = code_ui.instance()
@@ -216,7 +222,7 @@ func set_upgrade_level(level):
 			self.new_far = 40
 			self.new_correction = 0.25
 		3:
-			self.new_far = 200
+			self.new_far = 400
 			self.new_correction = 0.05
 		4:
 			self.new_far = 1000

@@ -44,7 +44,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="SphereShape" id=4]
-radius = 300.0
+radius = 400.0
 
 [node name="Spatial" type="Spatial"]
 script = ExtResource( 3 )

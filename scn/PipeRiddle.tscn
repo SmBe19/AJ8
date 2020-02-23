@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://msh/pipe_x.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://src/PipeRiddle.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://msh/pipe_t.obj" type="ArrayMesh" id=6]
 [ext_resource path="res://msh/pipe_long_i.obj" type="ArrayMesh" id=7]
 [ext_resource path="res://msh/pipe_bg.obj" type="ArrayMesh" id=8]
+[ext_resource path="res://snd/pipes.wav" type="AudioStream" id=9]
 
 [node name="PipeRiddle" type="Spatial"]
 script = ExtResource( 2 )
@@ -124,3 +125,6 @@ transform = Transform( 1.71335, 0.981123, -0.319109, 0.512682, -0.272835, 1.9138
 mesh = ExtResource( 8 )
 material/0 = ExtResource( 3 )
 material/1 = ExtResource( 3 )
+
+[node name="audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )

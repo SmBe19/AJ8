@@ -13,6 +13,7 @@ func _ready():
 
 func button_pressed(button):
 	button.get_node("animation").play("press")
+	$audio.play()
 	match button.get_name():
 		"xor_button_1":
 			update_state(1+8+64)

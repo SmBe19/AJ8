@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/upgrade.wav-14ff1453897aa9029ecfce7decbe287f.sample"
+
+[deps]
+
+source_file="res://snd/upgrade.wav"
+dest_files=[ "res://.import/upgrade.wav-14ff1453897aa9029ecfce7decbe287f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

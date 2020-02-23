@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://src/Player.gd" type="Script" id=1]
 [ext_resource path="res://msh/elevator_vab_roof.obj" type="ArrayMesh" id=2]
@@ -21,11 +21,11 @@
 [ext_resource path="res://msh/level_col.obj" type="ArrayMesh" id=19]
 [ext_resource path="res://msh/vab_door.obj" type="ArrayMesh" id=20]
 [ext_resource path="res://msh/rocket.obj" type="ArrayMesh" id=21]
-[ext_resource path="res://msh/palette_suzanne.obj" type="ArrayMesh" id=22]
-[ext_resource path="res://snd/steam.ogg" type="AudioStream" id=23]
+[ext_resource path="res://snd/steam.wav" type="AudioStream" id=23]
 [ext_resource path="res://snd/song001.ogg" type="AudioStream" id=24]
-[ext_resource path="res://snd/elevator.ogg" type="AudioStream" id=25]
+[ext_resource path="res://snd/elevator.wav" type="AudioStream" id=25]
 [ext_resource path="res://snd/robot.ogg" type="AudioStream" id=26]
+[ext_resource path="res://snd/upgrade.wav" type="AudioStream" id=27]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -165,6 +165,70 @@ tracks/3/keys = {
 "times": PoolRealArray( 0.5 )
 }
 
+[sub_resource type="Animation" id=16]
+resource_name = "finished"
+length = 20.0
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("rocket:translation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 20 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("rocket:translation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 500, -8.78782, -507.601, 0.25, 0 ),
+"times": PoolRealArray( 0, 20 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("rocket:translation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 20 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("camera:rotation_degrees:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 8.11153, -0.25, 0, 0.25, 0, 36.3374, -0.25, 0, 0.25, 0, 73.5055, -0.25, 0, 0.25, 0, 77.3072, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 1.9, 4.7, 8, 20 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("camera:rotation_degrees:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 80.2414, -0.25, 0, 0.25, 0, 77.9768, -0.25, 0, 0.25, 0, 53.7714, -0.25, 0, 0.25, 0, -40.2094, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 1.9, 4.7, 8, 20 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("camera:rotation_degrees:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( -1.39014, -0.25, 0, 0.25, 0, -7.19267, -0.25, 0, 0.25, 0, -35.0883, -0.25, 0, 0.25, 0, -130.91, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 1.9, 4.7, 8, 20 )
+}
+
 [node name="World" type="Spatial"]
 
 [node name="level" parent="." instance=ExtResource( 14 )]
@@ -185,6 +249,7 @@ shape = SubResource( 1 )
 
 [node name="Camera" type="Camera" parent="Player/RotationHelper"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0 )
+current = true
 far = 1000.0
 
 [node name="CameraAnimation" type="AnimationPlayer" parent="Player/RotationHelper"]
@@ -222,10 +287,13 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -328.776, 11, 34.0277 )
 
 [node name="elevator" type="AudioStreamPlayer" parent="Player"]
 stream = ExtResource( 25 )
-volume_db = -80.0
 
 [node name="moving" type="AudioStreamPlayer" parent="Player"]
 stream = ExtResource( 26 )
+
+[node name="upgrade" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource( 27 )
+volume_db = 7.0
 
 [node name="CollisionLvl" type="StaticBody" parent="."]
 
@@ -507,7 +575,7 @@ mesh = ExtResource( 17 )
 material/0 = ExtResource( 12 )
 
 [node name="space_station" parent="." instance=ExtResource( 18 )]
-transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 250, 0 )
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 600, 0 )
 
 [node name="puzzles" type="Spatial" parent="."]
 
@@ -555,17 +623,14 @@ material/4 = ExtResource( 4 )
 material/5 = ExtResource( 4 )
 material/6 = ExtResource( 4 )
 
-[node name="palette_suzanne" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -33.203, 0.26, -3.221 )
-mesh = ExtResource( 22 )
-material/0 = ExtResource( 4 )
-material/1 = ExtResource( 4 )
-material/2 = ExtResource( 4 )
-material/3 = ExtResource( 4 )
-material/4 = ExtResource( 4 )
-material/5 = ExtResource( 4 )
+[node name="animation" type="AnimationPlayer" parent="Rocket"]
+anims/finished = SubResource( 16 )
+
+[node name="camera" type="Camera" parent="Rocket"]
+transform = Transform( 0.166073, 0.14313, 0.975671, -0.0240174, 0.989704, -0.1411, -0.985821, -2.23517e-08, 0.167801, 53.0761, 14.8029, 1 )
+far = 1000.0
 
 [node name="background" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 24 )
-volume_db = -21.204
+volume_db = -15.0
 autoplay = true

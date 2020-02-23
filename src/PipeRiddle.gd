@@ -104,6 +104,7 @@ func process_input_click(delta):
 	if Input.is_action_just_pressed("perform_action"):
 		var selection = shoot_cam_ray()
 		if selection:
+			$audio.play()
 			var idx = selection.collider.idx
 			var new_current_pipe = null
 			var new_current_pipe_type = 0
