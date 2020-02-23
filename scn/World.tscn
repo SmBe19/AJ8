@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://src/Player.gd" type="Script" id=1]
 [ext_resource path="res://msh/elevator_vab_roof.obj" type="ArrayMesh" id=2]
@@ -22,6 +22,10 @@
 [ext_resource path="res://msh/vab_door.obj" type="ArrayMesh" id=20]
 [ext_resource path="res://msh/rocket.obj" type="ArrayMesh" id=21]
 [ext_resource path="res://msh/palette_suzanne.obj" type="ArrayMesh" id=22]
+[ext_resource path="res://snd/steam.ogg" type="AudioStream" id=23]
+[ext_resource path="res://snd/song001.ogg" type="AudioStream" id=24]
+[ext_resource path="res://snd/elevator.ogg" type="AudioStream" id=25]
+[ext_resource path="res://snd/robot.ogg" type="AudioStream" id=26]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -156,7 +160,7 @@ tracks/3/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 21 )
+"stream": ExtResource( 23 )
 } ],
 "times": PoolRealArray( 0.5 )
 }
@@ -164,11 +168,12 @@ tracks/3/keys = {
 [node name="World" type="Spatial"]
 
 [node name="level" parent="." instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.210899, 7.62939e-06, -0.298218 )
 script = ExtResource( 13 )
 material = ExtResource( 4 )
 
 [node name="Player" type="KinematicBody" parent="."]
-transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -50, 1, 8 )
+transform = Transform( -2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, -3.8147e-06, -20, 0 )
 script = ExtResource( 1 )
 mat_depth = [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 12 ) ]
 
@@ -214,6 +219,13 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -300, 1, 10 )
 
 [node name="rocket_top" type="Spatial" parent="Player/teleports"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -316, 11, 18 )
+
+[node name="elevator" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource( 25 )
+volume_db = -80.0
+
+[node name="moving" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource( 26 )
 
 [node name="CollisionLvl" type="StaticBody" parent="."]
 
@@ -414,7 +426,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -295.159, 1, 33.8592 )
 [node name="input_screens" type="Spatial" parent="."]
 
 [node name="input_screen_ug" parent="input_screens" instance=ExtResource( 10 )]
-transform = Transform( -2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 7.3346, -19.5556, 19.9518 )
+transform = Transform( -2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 7.3346, -19.5556, 19.5907 )
 
 [node name="input_screen_vab0" parent="input_screens" instance=ExtResource( 10 )]
 transform = Transform( -2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 7.3346, 1.44445, 19.9518 )
@@ -525,7 +537,7 @@ shape = SubResource( 14 )
 anims/open_vab = SubResource( 15 )
 
 [node name="audio" type="AudioStreamPlayer" parent="vab_door"]
-stream = ExtResource( 21 )
+stream = ExtResource( 23 )
 
 [node name="debug_light" type="DirectionalLight" parent="."]
 transform = Transform( 0.739243, 2.20312e-08, -0.673438, 0.461985, 0.727593, 0.507128, 0.489989, -0.686009, 0.537868, 0, 28.2737, 49.8675 )
@@ -552,3 +564,8 @@ material/2 = ExtResource( 4 )
 material/3 = ExtResource( 4 )
 material/4 = ExtResource( 4 )
 material/5 = ExtResource( 4 )
+
+[node name="background" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 24 )
+volume_db = -21.204
+autoplay = true

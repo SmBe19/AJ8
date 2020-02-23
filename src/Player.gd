@@ -87,6 +87,9 @@ func process_input_movement(delta):
 		accel = DEACCEL
 	vel = vel.linear_interpolate(target, accel * delta)
 	vel = move_and_slide(vel, Vector3(0, 1, 0))
+	var should_play = vel.length_squared() > 1
+	if should_play != $moving.playing:
+		$moving.playing = should_play
 
 func shoot_cam_ray():
 	var mouse_pos = get_viewport().get_mouse_position()
@@ -117,6 +120,7 @@ func process_input_click(delta):
 				show_puzzle(int(obj.get_name().substr(7, 1))-1)
 			elif obj.get_name() == "input_screen_rocket_top":
 				self.transform.origin = $teleports/rocket_bottom.transform.origin
+				$elevator.play()
 	if current_level >= 4 and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		var selection = shoot_cam_ray()
 		if selection:
@@ -153,8 +157,10 @@ func show_code_ui(length, callback):
 func elevator_ug_check(code):
 	if code == "2AFHB":
 		self.transform.origin = $teleports/vab_0.transform.origin
+		$elevator.play()
 
 func elevator_vab_check(code):
+	$elevator.play()
 	if code == "1969":
 		self.transform.origin = $teleports/vab_roof.transform.origin
 	elif code == "0000":
@@ -169,6 +175,7 @@ func exit_check(code):
 func elevator_rocket_bottom_check(code):
 	if code == "X57":
 		self.transform.origin = $teleports/rocket_top.transform.origin
+		$elevator.play()
 
 func _input(event):
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:

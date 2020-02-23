@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/CodeUI.gd" type="Script" id=1]
+[ext_resource path="res://snd/code.ogg" type="AudioStream" id=2]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://fnt/OpenSans-Regular.ttf"
@@ -215,6 +216,9 @@ margin_top = 120.0
 margin_right = 102.0
 margin_bottom = 140.0
 text = "W"
+
+[node name="audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
 [connection signal="button_up" from="bg/vbox/grid/0" to="." method="_on_0_button_up"]
 [connection signal="button_up" from="bg/vbox/grid/1" to="." method="_on_1_button_up"]
 [connection signal="button_up" from="bg/vbox/grid/2" to="." method="_on_2_button_up"]
