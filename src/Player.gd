@@ -114,8 +114,6 @@ func process_input_click(delta):
 				show_puzzle(int(obj.get_name().substr(7, 1))-1)
 			elif obj.get_name() == "input_screen_rocket_top":
 				self.transform.origin = $teleports/rocket_bottom.transform.origin
-		# TODO remove
-		show_puzzle(1)
 	if current_level >= 4 and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		var selection = shoot_cam_ray()
 		if selection:
