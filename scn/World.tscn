@@ -215,10 +215,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 51, 18 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 61, 18 )
 
 [node name="rocket_bottom" type="Spatial" parent="Player/teleports"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -300, 1, 10 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -298.956, 1, 33.6031 )
 
 [node name="rocket_top" type="Spatial" parent="Player/teleports"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -316, 11, 18 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -328.776, 11, 34.0277 )
 
 [node name="elevator" type="AudioStreamPlayer" parent="Player"]
 stream = ExtResource( 25 )
