@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/space_station.obj-faf004e94f9a38f1035652a823a145e7.mesh"
+
+[deps]
+
+files=[ "res://.import/space_station.obj-faf004e94f9a38f1035652a823a145e7.mesh" ]
+
+source_file="res://msh/space_station.obj"
+dest_files=[ "res://.import/space_station.obj-faf004e94f9a38f1035652a823a145e7.mesh", "res://.import/space_station.obj-faf004e94f9a38f1035652a823a145e7.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

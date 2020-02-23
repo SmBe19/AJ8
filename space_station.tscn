@@ -1,0 +1,77 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://msh/space_station.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://mat/depth.tres" type="Material" id=2]
+[ext_resource path="res://src/space_station.gd" type="Script" id=3]
+[ext_resource path="res://msh/elevator_lc.obj" type="ArrayMesh" id=4]
+
+[sub_resource type="SphereMesh" id=1]
+radius = 100.0
+height = 200.0
+
+[sub_resource type="Animation" id=2]
+resource_name = "rotate"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("station_parent/space_station:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, -90, 0 ), Vector3( 0, -180, 0 ), Vector3( 0, -270, 0 ), Vector3( 0, -360, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "orbit"
+length = 10.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("station_parent:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.5, 5, 7.5, 10 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 90, 0 ), Vector3( 0, 180, 0 ), Vector3( 0, 270, 0 ), Vector3( 0, 360, 0 ) ]
+}
+
+[sub_resource type="SphereShape" id=4]
+radius = 200.0
+
+[node name="Spatial" type="Spatial"]
+script = ExtResource( 3 )
+
+[node name="moon" type="MeshInstance" parent="."]
+mesh = SubResource( 1 )
+material/0 = ExtResource( 2 )
+
+[node name="animation_rotate" type="AnimationPlayer" parent="."]
+anims/rotate = SubResource( 2 )
+
+[node name="animation_orbit" type="AnimationPlayer" parent="."]
+anims/orbit = SubResource( 3 )
+
+[node name="station_parent" type="Spatial" parent="."]
+
+[node name="space_station" type="MeshInstance" parent="station_parent"]
+transform = Transform( -0.993827, 0, -0.110941, 0, 1, 0, 0.110941, 0, -0.993827, 0, 0, -303 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="elevator_lc" type="MeshInstance" parent="station_parent/space_station"]
+transform = Transform( 19.5077, -1.93975e-07, 4.41023, 1.93975e-07, -20, -1.73766e-06, 4.41023, 1.73766e-06, -19.5077, -14, 67, -12 )
+mesh = ExtResource( 4 )
+material/0 = null
+
+[node name="space_station" type="StaticBody" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="space_station"]
+shape = SubResource( 4 )

@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/elevator_ug_riddle.obj-952174719a75c0c9aebb2a64207295f0.mesh"
+
+[deps]
+
+files=[ "res://.import/elevator_ug_riddle.obj-952174719a75c0c9aebb2a64207295f0.mesh" ]
+
+source_file="res://msh/elevator_ug_riddle.obj"
+dest_files=[ "res://.import/elevator_ug_riddle.obj-952174719a75c0c9aebb2a64207295f0.mesh", "res://.import/elevator_ug_riddle.obj-952174719a75c0c9aebb2a64207295f0.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

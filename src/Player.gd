@@ -22,11 +22,13 @@ var current_level
 var camera
 var helper
 
+var camera_zoomed = false
+
 var code_ui = preload("res://scn/CodeUI.tscn")
 
 func _ready():
-	camera = $RotationHelper/Camera
-	helper = $RotationHelper
+	self.camera = $RotationHelper/Camera
+	self.helper = $RotationHelper
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	self.set_upgrade_level(0)
@@ -80,13 +82,16 @@ func process_input_movement(delta):
 	vel = vel.linear_interpolate(target, accel * delta)
 	vel = move_and_slide(vel, Vector3(0, 1, 0))
 
+func shoot_cam_ray():
+	var mouse_pos = get_viewport().get_mouse_position()
+	var ray_from = self.camera.project_ray_origin(mouse_pos)
+	var ray_to = ray_from + self.camera.project_ray_normal(mouse_pos) * self.camera.far
+	var space_state = get_world().direct_space_state
+	return space_state.intersect_ray(ray_from, ray_to)
+
 func process_input_click(delta):
 	if Input.is_action_just_pressed("perform_action") and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-		var mouse_pos = get_viewport().get_mouse_position()
-		var ray_from = self.camera.project_ray_origin(mouse_pos)
-		var ray_to = ray_from + self.camera.project_ray_normal(mouse_pos) * self.camera.far
-		var space_state = get_world().direct_space_state
-		var selection = space_state.intersect_ray(ray_from, ray_to)
+		var selection = shoot_cam_ray()
 		if selection:
 			var obj = selection.collider
 			if obj.is_in_group("upgrade"):
@@ -102,6 +107,16 @@ func process_input_click(delta):
 				show_code_ui(3, "elevator_rocket_bottom_check")
 			elif obj.get_name() == "input_screen_rocket_top":
 				self.transform.origin = $teleports/rocket_bottom.transform.origin
+	if current_level >= 4 and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+		var selection = shoot_cam_ray()
+		if selection:
+			var obj = selection.collider
+			if obj.get_name() == "space_station" and not self.camera_zoomed:
+				$RotationHelper/CameraAnimation.play("ZoomIn")
+				self.camera_zoomed = true
+		elif self.camera_zoomed:
+			$RotationHelper/CameraAnimation.play("ZoomOut")
+			self.camera_zoomed = false
 
 func show_code_ui(length, callback):
 	var ui = code_ui.instance()

@@ -1,12 +1,13 @@
 extends Spatial
 
-export(String) var reward_path
+export(Array, String) var reward_paths
 
 var state = 0
 var solved = false
 
 func _ready():
-	get_node(self.reward_path).translate(Vector3(1000, 1000, 1000))
+	for reward_path in self.reward_paths:
+		get_node(reward_path).translate(Vector3(1000, 1000, 1000))
 	for i in 8:
 		get_node("xor_light_" + str(i+1) + "/animation").play("Off")
 
@@ -40,6 +41,9 @@ func update_state(val):
 		if old_state & mask == 0 and self.state & mask > 0:
 			get_node("xor_light_" + str(i+1) + "/animation").play("On")
 	if not self.solved and self.state == 256-1:
-		get_node(self.reward_path).translate(Vector3(-1000, -1000, -1000))
-		get_node(self.reward_path + "/upgrade/animation").play("show")
+		for reward_path in self.reward_paths:
+			get_node(self.reward_path).translate(Vector3(-1000, -1000, -1000))
+			var animator = get_node(self.reward_path + "/upgrade/animation")
+			if animator:
+				animator.play("show")
 		self.solved = true
