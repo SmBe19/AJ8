@@ -36,6 +36,7 @@ func _ready():
 	self.camera = $Camera
 	self.camera.current = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	$"/root/Root/World/Player".should_capture_input = false
 	self.build_puzzle()
 
 func build_puzzle():
@@ -57,10 +58,11 @@ func build_puzzle():
 				self.pipes.append(null)
 
 func finish():
-	emit_signal("puzzle_solved")
-	$"..".remove_child(self)
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	$"/root/Root/World/Player".should_capture_input = true
+	emit_signal("puzzle_solved")
+	$"..".remove_child(self)
 
 func check():
 	var cnt = []

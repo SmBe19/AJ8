@@ -31,13 +31,17 @@ var pipe_puzzle = preload("res://scn/PipeRiddle.tscn")
 var puzzle_solved = [false, false]
 var current_puzzle = 0
 
+var should_capture_input = true
+
 func _ready():
 	self.camera = $RotationHelper/Camera
 	self.helper = $RotationHelper
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	self.should_capture_input = true
 	self.set_upgrade_level(0)
 	self.level_progress = 1
+	print(get_path())
 	$"../debug_light".hide()
 
 func _process(delta):
@@ -93,7 +97,7 @@ func shoot_cam_ray():
 	return space_state.intersect_ray(ray_from, ray_to)
 
 func process_input_click(delta):
-	if Input.is_action_just_pressed("perform_action") and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+	if Input.is_action_just_pressed("perform_action") and self.should_capture_input:
 		var selection = shoot_cam_ray()
 		if selection:
 			var obj = selection.collider
@@ -116,7 +120,7 @@ func process_input_click(delta):
 			elif obj.get_name() == "input_screen_rocket_top":
 				self.transform.origin = $teleports/rocket_bottom.transform.origin
 				$elevator.play()
-	if current_level >= 4 and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+	if current_level >= 4 and self.should_capture_input:
 		var selection = shoot_cam_ray()
 		if selection:
 			var obj = selection.collider
@@ -178,7 +182,10 @@ func elevator_rocket_bottom_check(code):
 		$elevator.play()
 
 func _input(event):
-	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+	if event is InputEventMouseButton and self.should_capture_input:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		self.should_capture_input = true
+	if event is InputEventMouseMotion and self.should_capture_input:
 		self.helper.rotate_x(event.relative.y * MOUSE_SENSITIVITY * -1)
 		self.rotate_y(event.relative.x * MOUSE_SENSITIVITY * -1)
 		

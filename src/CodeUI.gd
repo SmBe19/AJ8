@@ -8,15 +8,17 @@ var code = ""
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	$"/root/Root/World/Player".should_capture_input = false
 	update_label()
 
 func update_label():
 	if self.code.length() == self.code_length:
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		$"/root/Root/World/Player".should_capture_input = true
 		emit_signal("code_entered", self.code)
 		self.code = ""
 		$"..".remove_child(self)
-		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		return
 	var text = self.code
 	while text.length() < self.code_length:
