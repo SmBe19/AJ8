@@ -2,6 +2,7 @@ extends KinematicBody
 
 const MOUSE_SENSITIVITY = 0.002
 const MAX_SPEED = 10
+const MAX_SPEED_FAST = 20
 const ACCEL = 4.5
 const DEACCEL= 16
 const CAM_ANGLE = 70
@@ -66,7 +67,10 @@ func process_input_movement(delta):
 	dir = dir.normalized()
 	
 	var target = dir
-	target *= MAX_SPEED
+	if Input.is_action_pressed("move_fast"):
+		target *= MAX_SPEED_FAST
+	else:
+		target *= MAX_SPEED
 	
 	var accel
 	if dir.dot(vel) > 0:

@@ -12,7 +12,6 @@ func _ready():
 	for child in get_children():
 		if child is MeshInstance:
 			for i in child.get_surface_material_count():
-				print(child, i)
 				child.set_surface_material(i, self.material)
 
 
