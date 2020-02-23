@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://src/Player.gd" type="Script" id=1]
 [ext_resource path="res://msh/elevator_vab_roof.obj" type="ArrayMesh" id=2]
@@ -21,11 +21,22 @@
 [ext_resource path="res://msh/level_col.obj" type="ArrayMesh" id=19]
 [ext_resource path="res://msh/vab_door.obj" type="ArrayMesh" id=20]
 [ext_resource path="res://msh/rocket.obj" type="ArrayMesh" id=21]
+[ext_resource path="res://scn/props/terminal.tscn" type="PackedScene" id=22]
 [ext_resource path="res://snd/steam.wav" type="AudioStream" id=23]
 [ext_resource path="res://snd/song001.ogg" type="AudioStream" id=24]
 [ext_resource path="res://snd/elevator.wav" type="AudioStream" id=25]
 [ext_resource path="res://snd/robot.ogg" type="AudioStream" id=26]
 [ext_resource path="res://snd/upgrade.wav" type="AudioStream" id=27]
+[ext_resource path="res://scn/props/table.tscn" type="PackedScene" id=28]
+[ext_resource path="res://scn/props/palett_empty.tscn" type="PackedScene" id=29]
+[ext_resource path="res://scn/props/palett_barrels.tscn" type="PackedScene" id=30]
+[ext_resource path="res://scn/props/palett_cone.tscn" type="PackedScene" id=31]
+[ext_resource path="res://scn/props/palett_suzanne.tscn" type="PackedScene" id=32]
+[ext_resource path="res://scn/props/palett_teapot.tscn" type="PackedScene" id=33]
+[ext_resource path="res://scn/props/tree1.tscn" type="PackedScene" id=34]
+[ext_resource path="res://scn/props/tree2.tscn" type="PackedScene" id=35]
+[ext_resource path="res://scn/props/tree3.tscn" type="PackedScene" id=36]
+[ext_resource path="res://msh/credits.obj" type="ArrayMesh" id=37]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -227,6 +238,66 @@ tracks/5/enabled = true
 tracks/5/keys = {
 "points": PoolRealArray( -1.39014, -0.25, 0, 0.25, 0, -7.19267, -0.25, 0, 0.25, 0, -35.0883, -0.25, 0, 0.25, 0, -130.91, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 1.9, 4.7, 8, 20 )
+}
+tracks/6/type = "bezier"
+tracks/6/path = NodePath("credits:translation:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"points": PoolRealArray( 9.612, -0.25, 0, 0.25, 0, 9.612, -0.25, 0, 0.25, 0, 48.3983, -0.25, 0, 0.25, 0, 52.4446, -0.25, 0, 0.25, 0, 57.535, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 8, 11, 15, 20 )
+}
+tracks/7/type = "bezier"
+tracks/7/path = NodePath("credits:translation:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"points": PoolRealArray( -2, -0.25, 0, 0.25, 0, -2, -0.25, 0, 0.25, 0, 11.9161, -0.25, 0, 0.25, 0, 28.4201, -0.25, 0, 0.25, 0, 150, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 8, 11, 15, 20 )
+}
+tracks/8/type = "bezier"
+tracks/8/path = NodePath("credits:translation:z")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"points": PoolRealArray( -2.832, -0.25, 0, 0.25, 0, -2.832, -0.25, 0, 0.25, 0, -2.832, -0.25, 0, 0.25, 0, -2.832, -0.25, 0, 0.25, 0, -2.832, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 8, 11, 15, 20 )
+}
+tracks/9/type = "bezier"
+tracks/9/path = NodePath("credits:rotation_degrees:x")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 2.67699, -0.25, 0, 0.25, 0, -7.98273, -0.25, 0, 0.25, 0, -21.393, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 8, 11, 15, 20 )
+}
+tracks/10/type = "bezier"
+tracks/10/path = NodePath("credits:rotation_degrees:y")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"points": PoolRealArray( 90, -0.25, 0, 0.25, 0, 90, -0.25, 0, 0.25, 0, -90, -0.25, 0, 0.25, 0, -90, -0.25, 0, 0.25, 0, -90, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 8, 11, 15, 20 )
+}
+tracks/11/type = "bezier"
+tracks/11/path = NodePath("credits:rotation_degrees:z")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 180, -0.25, 0, 0.25, 0, 180, -0.25, 0, 0.25, 0, 180, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 8, 11, 15, 20 )
 }
 
 [node name="World" type="Spatial"]
@@ -635,7 +706,176 @@ anims/finished = SubResource( 16 )
 transform = Transform( 0.166073, 0.14313, 0.975671, -0.0240174, 0.989704, -0.1411, -0.985821, -2.23517e-08, 0.167801, 53.0761, 14.8029, 1 )
 far = 1000.0
 
+[node name="credits" type="MeshInstance" parent="Rocket"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.612, -2, -2.832 )
+mesh = ExtResource( 37 )
+material/0 = ExtResource( 4 )
+
 [node name="background" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 24 )
 volume_db = -15.0
 autoplay = true
+
+[node name="props" type="Spatial" parent="."]
+
+[node name="Spatial" parent="props" instance=ExtResource( 22 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.345563, -21, -6.49811 )
+
+[node name="Spatial2" parent="props" instance=ExtResource( 22 )]
+transform = Transform( 0.204752, 0, -0.978814, 0, 1, 0, 0.978814, 0, 0.204752, 9.85823, -21, -10.8648 )
+
+[node name="Spatial3" parent="props" instance=ExtResource( 28 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.07965, -21, -9.19847 )
+
+[node name="Spatial4" parent="props" instance=ExtResource( 28 )]
+transform = Transform( 0.775341, 0, -0.631542, 0, 1, 0, 0.631542, 0, 0.775341, 1.16779, -21, -11.2318 )
+
+[node name="Spatial5" parent="props" instance=ExtResource( 28 )]
+transform = Transform( 0.887679, 0, -0.460463, 0, 1, 0, 0.460463, 0, 0.887679, -0.795307, 10, 11.0935 )
+
+[node name="Spatial6" parent="props" instance=ExtResource( 29 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.9374, 0, -14.7512 )
+
+[node name="Spatial7" parent="props" instance=ExtResource( 29 )]
+transform = Transform( 0.74132, 0, -0.671152, 0, 1, 0, 0.671152, 0, 0.74132, -41.7091, 0, -4.45775 )
+
+[node name="Spatial8" parent="props" instance=ExtResource( 29 )]
+transform = Transform( 0.999999, 0, -0.00102982, 0, 1, 0, 0.00102982, 0, 0.999999, -41.7091, 0, -21.9879 )
+
+[node name="Spatial9" parent="props" instance=ExtResource( 29 )]
+transform = Transform( 0.806321, 0, -0.591479, 0, 1, 0, 0.591479, 0, 0.806321, -41.7091, 0, 12.1283 )
+
+[node name="Spatial10" parent="props" instance=ExtResource( 29 )]
+transform = Transform( 0.806321, 0, -0.591479, 0, 1, 0, 0.591479, 0, 0.806321, -41.709, 0.26, 12.128 )
+
+[node name="Spatial11" parent="props" instance=ExtResource( 30 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -48.499, 0, -10.7909 )
+
+[node name="Spatial12" parent="props" instance=ExtResource( 30 )]
+transform = Transform( 0.717823, 0, 0.696226, 0, 1, 0, -0.696226, 0, 0.717823, -30.8489, 0, -10.7909 )
+
+[node name="Spatial13" parent="props" instance=ExtResource( 30 )]
+transform = Transform( 0.717823, 0, 0.696226, 0, 1, 0, -0.696226, 0, 0.717823, -5.63532, 0, -1.3622 )
+
+[node name="Spatial14" parent="props" instance=ExtResource( 30 )]
+transform = Transform( 0.890411, 0, 0.455156, 0, 1, 0, -0.455156, 0, 0.890411, -1.28934, 0, -18.9894 )
+
+[node name="Spatial15" parent="props" instance=ExtResource( 30 )]
+transform = Transform( 0.99794, 0, 0.0641491, 0, 1, 0, -0.0641491, 0, 0.99794, -31.4798, 0, -21.3219 )
+
+[node name="Spatial16" parent="props" instance=ExtResource( 30 )]
+transform = Transform( 0.99794, 0, 0.0641491, 0, 1, 0, -0.0641491, 0, 0.99794, -45.1272, 0, -26.9645 )
+
+[node name="Spatial17" parent="props" instance=ExtResource( 31 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -51.637, 0, -17.7264 )
+
+[node name="Spatial18" parent="props" instance=ExtResource( 31 )]
+transform = Transform( 0.69884, 0, -0.715278, 0, 1, 0, 0.715278, 0, 0.69884, -36.5608, 0, -25.8079 )
+
+[node name="Spatial19" parent="props" instance=ExtResource( 31 )]
+transform = Transform( 0.19432, 0, -0.980938, 0, 1, 0, 0.980938, 0, 0.19432, -36.5608, 0, 17.3511 )
+
+[node name="Spatial20" parent="props" instance=ExtResource( 31 )]
+transform = Transform( -0.0958633, 0, -0.995394, 0, 1, 0, 0.995394, 0, -0.0958633, -57.1398, 0, 17.3511 )
+
+[node name="Spatial21" parent="props" instance=ExtResource( 31 )]
+transform = Transform( -0.0958633, 0, -0.995394, 0, 1, 0, 0.995394, 0, -0.0958633, -57.1398, 0, -7.74198 )
+
+[node name="Spatial22" parent="props" instance=ExtResource( 32 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.639, 0, -18.466 )
+
+[node name="Spatial23" parent="props" instance=ExtResource( 32 )]
+transform = Transform( 0.758134, 0, 0.652098, 0, 1, 0, -0.652098, 0, 0.758134, 6.639, 0, -8.08832 )
+
+[node name="Spatial24" parent="props" instance=ExtResource( 32 )]
+transform = Transform( 0.941423, 0, 0.337227, 0, 1, 0, -0.337227, 0, 0.941423, 0.112861, 0, -8.08832 )
+
+[node name="Spatial25" parent="props" instance=ExtResource( 32 )]
+transform = Transform( 0.98472, 0, 0.174147, 0, 1, 0, -0.174147, 0, 0.98472, -46.623, 0, -1.12421 )
+
+[node name="Spatial26" parent="props" instance=ExtResource( 32 )]
+transform = Transform( 0.99358, 0, -0.113134, 0, 1, 0, 0.113134, 0, 0.99358, -23.3964, 0, 11.0832 )
+
+[node name="Spatial27" parent="props" instance=ExtResource( 33 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.757, 0, -27.9106 )
+
+[node name="Spatial28" parent="props" instance=ExtResource( 33 )]
+transform = Transform( 0.946779, 0, -0.321886, 0, 1, 0, 0.321886, 0, 0.946779, -14.0229, 0, -27.9106 )
+
+[node name="Spatial29" parent="props" instance=ExtResource( 33 )]
+transform = Transform( 0.82713, 0, -0.562011, 0, 1, 0, 0.562011, 0, 0.82713, -14.0229, 0, 15.2762 )
+
+[node name="Spatial30" parent="props" instance=ExtResource( 33 )]
+transform = Transform( 0.82713, 0, -0.562011, 0, 1, 0, 0.562011, 0, 0.82713, -49.3598, 0, 15.2762 )
+
+[node name="Spatial31" parent="props" instance=ExtResource( 28 )]
+transform = Transform( 0.946509, 0, -0.322679, 0, 1, 0, 0.322679, 0, 0.946509, -33.7702, 0, 10.204 )
+
+[node name="Spatial32" parent="props" instance=ExtResource( 34 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -150.536, 0, -19.0856 )
+
+[node name="Spatial33" parent="props" instance=ExtResource( 34 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -193.826, 0, 26.5779 )
+
+[node name="Spatial34" parent="props" instance=ExtResource( 34 )]
+transform = Transform( 0.87538, 0, -0.483435, 0, 1, 0, 0.483435, 0, 0.87538, -233.032, 0, -9.05675 )
+
+[node name="Spatial35" parent="props" instance=ExtResource( 34 )]
+transform = Transform( 0.87538, 0, -0.483435, 0, 1, 0, 0.483435, 0, 0.87538, -265.924, 0, 24.1251 )
+
+[node name="Spatial36" parent="props" instance=ExtResource( 34 )]
+transform = Transform( 0.678967, 0, -0.734169, 0, 1, 0, 0.734169, 0, 0.678967, -153.691, 0, 24.1251 )
+
+[node name="Spatial37" parent="props" instance=ExtResource( 35 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -202.488, 0, -30.2058 )
+
+[node name="Spatial38" parent="props" instance=ExtResource( 35 )]
+transform = Transform( 0.885467, 0, -0.464703, 0, 1, 0, 0.464703, 0, 0.885467, -202.488, 0, 3.64574 )
+
+[node name="Spatial39" parent="props" instance=ExtResource( 35 )]
+transform = Transform( 0.885467, 0, -0.464703, 0, 1, 0, 0.464703, 0, 0.885467, -120.986, 0, -20.4925 )
+
+[node name="Spatial40" parent="props" instance=ExtResource( 35 )]
+transform = Transform( 0.682203, 0, -0.731163, 0, 1, 0, 0.731163, 0, 0.682203, -169.151, 0, 12.3989 )
+
+[node name="Spatial41" parent="props" instance=ExtResource( 35 )]
+transform = Transform( 0.682203, 0, -0.731163, 0, 1, 0, 0.731163, 0, 0.682203, -258.307, 0, 12.3989 )
+
+[node name="Spatial42" parent="props" instance=ExtResource( 35 )]
+transform = Transform( 0.682203, 0, -0.731163, 0, 1, 0, 0.731163, 0, 0.682203, -258.307, 0, -30.3322 )
+
+[node name="Spatial43" parent="props" instance=ExtResource( 35 )]
+transform = Transform( 0.256863, 0, -0.966448, 0, 1, 0, 0.966448, 0, 0.256863, -238.862, 0, -30.3322 )
+
+[node name="Spatial44" parent="props" instance=ExtResource( 35 )]
+transform = Transform( 0.0791202, 0, -0.996865, 0, 1, 0, 0.996865, 0, 0.0791202, -181.053, 0, -16.9944 )
+
+[node name="Spatial54" parent="props" instance=ExtResource( 35 )]
+transform = Transform( -0.089103, 0, -0.996022, 0, 1, 0, 0.996022, 0, -0.089103, -218.568, 0, 17.6067 )
+
+[node name="Spatial45" parent="props" instance=ExtResource( 36 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -230.538, 0, -58.5773 )
+
+[node name="Spatial46" parent="props" instance=ExtResource( 36 )]
+transform = Transform( 0.823424, 0, -0.567427, 0, 1, 0, 0.567427, 0, 0.823424, -203.224, 0, -58.5773 )
+
+[node name="Spatial47" parent="props" instance=ExtResource( 36 )]
+transform = Transform( 0.74084, 0, -0.671682, 0, 1, 0, 0.671682, 0, 0.74084, -170.742, 0, -21.3186 )
+
+[node name="Spatial48" parent="props" instance=ExtResource( 36 )]
+transform = Transform( 0.74084, 0, -0.671682, 0, 1, 0, 0.671682, 0, 0.74084, -92.784, 0, -21.3186 )
+
+[node name="Spatial49" parent="props" instance=ExtResource( 36 )]
+transform = Transform( 0.564506, 0, -0.825429, 0, 1, 0, 0.825429, 0, 0.564506, -117.18, 0, 34.8369 )
+
+[node name="Spatial50" parent="props" instance=ExtResource( 36 )]
+transform = Transform( 0.564506, 0, -0.825429, 0, 1, 0, 0.825429, 0, 0.564506, -146.809, 0, 16.5164 )
+
+[node name="Spatial51" parent="props" instance=ExtResource( 36 )]
+transform = Transform( 0.2727, 0, -0.962099, 0, 1, 0, 0.962099, 0, 0.2727, -234.386, 0, 16.5164 )
+
+[node name="Spatial52" parent="props" instance=ExtResource( 36 )]
+transform = Transform( 0.2727, 0, -0.962099, 0, 1, 0, 0.962099, 0, 0.2727, -256.517, 0, 41.3716 )
+
+[node name="Spatial53" parent="props" instance=ExtResource( 36 )]
+transform = Transform( 0.2727, 0, -0.962099, 0, 1, 0, 0.962099, 0, 0.2727, -219.641, 0, 41.3716 )
