@@ -18,6 +18,7 @@ var level_progress
 
 var vel = Vector3()
 var current_level
+var old_current_level
 
 var camera
 var helper
@@ -25,6 +26,10 @@ var helper
 var camera_zoomed = false
 
 var code_ui = preload("res://scn/CodeUI.tscn")
+var pipe_puzzle = preload("res://scn/PipeRiddle.tscn")
+
+var puzzle_solved = [false, false]
+var current_puzzle = 0
 
 func _ready():
 	self.camera = $RotationHelper/Camera
@@ -105,6 +110,8 @@ func process_input_click(delta):
 				show_code_ui(4, "elevator_vab_check")
 			elif obj.get_name() == "input_screen_rocket_bottom":
 				show_code_ui(3, "elevator_rocket_bottom_check")
+			elif obj.get_name().find("puzzle_") == 0:
+				show_puzzle(int(obj.get_name().substr(7, 1)))
 			elif obj.get_name() == "input_screen_rocket_top":
 				self.transform.origin = $teleports/rocket_bottom.transform.origin
 	if current_level >= 4 and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
@@ -117,6 +124,21 @@ func process_input_click(delta):
 		elif self.camera_zoomed:
 			$RotationHelper/CameraAnimation.play("ZoomOut")
 			self.camera_zoomed = false
+
+func show_puzzle(idx):
+	if self.puzzle_solved[idx]:
+		return
+	self.current_puzzle = idx
+	self.old_current_level = self.current_level
+	self.set_upgrade_level(3)
+	var puzzle = pipe_puzzle.instance()
+	puzzle.translate(Vector3(-1000, -1000, -1000))
+	puzzle.connect("puzzle_solved", self, "puzzle_solved")
+	$"/root/Root".add_child(puzzle)
+	
+func puzzle_solved():
+	self.puzzle_solved[self.current_puzzle] = true
+	self.set_upgrade_level(self.old_current_level)
 
 func show_code_ui(length, callback):
 	var ui = code_ui.instance()
