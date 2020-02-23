@@ -44,7 +44,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="SphereShape" id=4]
-radius = 200.0
+radius = 300.0
 
 [node name="Spatial" type="Spatial"]
 script = ExtResource( 3 )
@@ -64,12 +64,12 @@ anims/orbit = SubResource( 3 )
 [node name="space_station" type="MeshInstance" parent="station_parent"]
 transform = Transform( -0.993827, 0, -0.110941, 0, 1, 0, 0.110941, 0, -0.993827, 0, 0, -303 )
 mesh = ExtResource( 1 )
-material/0 = null
+material/0 = ExtResource( 2 )
 
 [node name="elevator_lc" type="MeshInstance" parent="station_parent/space_station"]
 transform = Transform( 19.5077, -1.93975e-07, 4.41023, 1.93975e-07, -20, -1.73766e-06, 4.41023, 1.73766e-06, -19.5077, -14, 67, -12 )
 mesh = ExtResource( 4 )
-material/0 = null
+material/0 = ExtResource( 2 )
 
 [node name="space_station" type="StaticBody" parent="."]
 
