@@ -289,6 +289,31 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 6.33106
 mesh = ExtResource( 2 )
 material/0 = ExtResource( 12 )
 
+[node name="elevator_vab_roof2" type="MeshInstance" parent="elevator_signs"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 6.33106, 52.9534, 20.116 )
+mesh = ExtResource( 2 )
+material/0 = ExtResource( 12 )
+
+[node name="elevator_vab_roof3" type="MeshInstance" parent="elevator_signs"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 6.33106, 42.9534, 20.116 )
+mesh = ExtResource( 2 )
+material/0 = ExtResource( 12 )
+
+[node name="elevator_vab_roof4" type="MeshInstance" parent="elevator_signs"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 6.33106, 32.9534, 20.116 )
+mesh = ExtResource( 2 )
+material/0 = ExtResource( 12 )
+
+[node name="elevator_vab_roof5" type="MeshInstance" parent="elevator_signs"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 6.33106, 22.9534, 20.116 )
+mesh = ExtResource( 2 )
+material/0 = ExtResource( 12 )
+
+[node name="elevator_vab_roof6" type="MeshInstance" parent="elevator_signs"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 6.33106, 12.9534, 20.116 )
+mesh = ExtResource( 2 )
+material/0 = ExtResource( 12 )
+
 [node name="elevator_vab_0" type="MeshInstance" parent="elevator_signs"]
 transform = Transform( -4, -6.03983e-07, 2.64009e-14, 0, -1.74846e-07, -4, 6.03983e-07, -4, 1.74846e-07, 5.80929, 4.64853, 26.3127 )
 mesh = ExtResource( 15 )
