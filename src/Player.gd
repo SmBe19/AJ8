@@ -111,9 +111,11 @@ func process_input_click(delta):
 			elif obj.get_name() == "input_screen_rocket_bottom":
 				show_code_ui(3, "elevator_rocket_bottom_check")
 			elif obj.get_name().find("puzzle_") == 0:
-				show_puzzle(int(obj.get_name().substr(7, 1)))
+				show_puzzle(int(obj.get_name().substr(7, 1))-1)
 			elif obj.get_name() == "input_screen_rocket_top":
 				self.transform.origin = $teleports/rocket_bottom.transform.origin
+		# TODO remove
+		show_puzzle(1)
 	if current_level >= 4 and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		var selection = shoot_cam_ray()
 		if selection:
@@ -132,6 +134,7 @@ func show_puzzle(idx):
 	self.old_current_level = self.current_level
 	self.set_upgrade_level(3)
 	var puzzle = pipe_puzzle.instance()
+	puzzle.status = [] + puzzle.puzzles[idx]
 	puzzle.translate(Vector3(-1000, -1000, -1000))
 	puzzle.connect("puzzle_solved", self, "puzzle_solved")
 	$"/root/Root".add_child(puzzle)
