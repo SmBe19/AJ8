@@ -20,7 +20,7 @@
 [ext_resource path="res://scn/space_station.tscn" type="PackedScene" id=18]
 [ext_resource path="res://msh/level_col.obj" type="ArrayMesh" id=19]
 [ext_resource path="res://msh/vab_door.obj" type="ArrayMesh" id=20]
-[ext_resource path="res://msh/rocket.obj" type="ArrayMesh" id=21]
+[ext_resource path="res://snd/steam.ogg" type="AudioStream" id=21]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -144,6 +144,20 @@ tracks/2/enabled = true
 tracks/2/keys = {
 "points": PoolRealArray( 11, -0.25, 0, 0.25, 0, 11, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0.5, 10 )
+}
+tracks/3/type = "audio"
+tracks/3/path = NodePath("audio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 21 )
+} ],
+"times": PoolRealArray( 0.5 )
 }
 
 [node name="World" type="Spatial"]
@@ -509,18 +523,8 @@ shape = SubResource( 14 )
 [node name="animation" type="AnimationPlayer" parent="vab_door"]
 anims/open_vab = SubResource( 15 )
 
+[node name="audio" type="AudioStreamPlayer" parent="vab_door"]
+stream = ExtResource( 21 )
+
 [node name="debug_light" type="DirectionalLight" parent="."]
 transform = Transform( 0.739243, 2.20312e-08, -0.673438, 0.461985, 0.727593, 0.507128, 0.489989, -0.686009, 0.537868, 0, 28.2737, 49.8675 )
-
-[node name="Rocket" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -350, 10, 12 )
-
-[node name="rocket" type="MeshInstance" parent="Rocket"]
-mesh = ExtResource( 21 )
-material/0 = ExtResource( 4 )
-material/1 = ExtResource( 4 )
-material/2 = ExtResource( 4 )
-material/3 = ExtResource( 4 )
-material/4 = ExtResource( 4 )
-material/5 = ExtResource( 4 )
-material/6 = ExtResource( 4 )
